@@ -34,15 +34,33 @@ nav ul a:hover{color:var(--fuchsia)}
 
 /* hero */
 .hero{padding:56px 0 48px;position:relative;overflow:hidden}
-.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.75;animation:drift 14s ease-in-out infinite alternate;z-index:0}
-.b1{width:380px;height:380px;background:var(--pink);top:-90px;right:8%}
-.b2{width:320px;height:320px;background:var(--peach);bottom:-120px;left:4%;animation-delay:-5s}
-.b3{width:260px;height:260px;background:var(--lilac);top:30%;left:42%;animation-delay:-9s}
+.blob{position:absolute;border-radius:50%;filter:blur(64px);opacity:.8;animation:drift 14s ease-in-out infinite alternate;z-index:0}
+.b1{width:440px;height:440px;background:#F4A6D1;top:-110px;right:4%}
+.b2{width:360px;height:360px;background:#FFC3B3;bottom:-140px;left:2%;animation-delay:-5s}
+.b3{width:320px;height:320px;background:#D6BEF0;top:20%;left:40%;animation-delay:-9s}
 @keyframes drift{to{transform:translate(40px,-30px) scale(1.12)}}
-.hero .wrap{max-width:1080px}
-.hero h1{font-size:clamp(3rem,7.5vw,5.4rem);margin-bottom:18px}
-.role{font-size:clamp(1.15rem,2.4vw,1.5rem);color:var(--muted);min-height:2.4em;margin-bottom:28px}
-.role b{color:var(--fuchsia);font-weight:500;border-right:2px solid var(--coral);padding-right:3px}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(192,57,154,.2) 1.3px,transparent 1.4px);background-size:24px 24px;-webkit-mask-image:linear-gradient(115deg,transparent 25%,#000 100%);mask-image:linear-gradient(115deg,transparent 25%,#000 100%);z-index:0}
+.hero .wrap{max-width:1080px;z-index:1;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+.avail{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:999px;padding:7px 16px;font-size:.82rem;font-weight:500;margin-bottom:22px;backdrop-filter:blur(6px)}
+.avail i{width:9px;height:9px;border-radius:50%;background:var(--coral);flex:none;animation:pulse 1.8s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(244,132,111,.6)}100%{box-shadow:0 0 0 10px rgba(244,132,111,0)}}
+.hero h1{font-size:clamp(2.8rem,6.2vw,4.7rem);margin-bottom:10px}
+.fixed{font-weight:700;font-size:clamp(.9rem,1.6vw,1.02rem);letter-spacing:.01em;margin-bottom:14px}
+.role{font-size:clamp(1.4rem,3vw,2.05rem);font-family:var(--serif);color:var(--muted);min-height:2.4em;margin-bottom:26px;line-height:1.2}
+.role b{color:var(--fuchsia);font-weight:400;font-style:italic;border-right:2px solid var(--coral);padding-right:3px}
+.btn svg{width:16px;height:16px;vertical-align:-2px;margin-right:8px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.soc{display:flex;gap:10px;align-items:center;margin-left:4px}
+.soc a{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.8);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s}
+.soc a:hover{transform:translateY(-3px);background:var(--ink)}
+.soc svg{width:20px;height:20px;fill:var(--ink);transition:fill .2s}
+.soc a:hover svg{fill:#fff}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:18px;padding:22px 20px;box-shadow:0 14px 30px rgba(42,27,61,.08);opacity:0;transform:translateY(16px);animation:rise .7s cubic-bezier(.2,.8,.2,1) forwards}
+.stat:nth-child(2){animation-delay:.12s}.stat:nth-child(3){animation-delay:.24s}.stat:nth-child(4){animation-delay:.36s}
+.stat:nth-child(even){transform:translateY(16px)}
+.stat b{display:block;font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4vw,2.7rem);line-height:1;background:linear-gradient(120deg,var(--fuchsia),var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+.stat span{font-size:.88rem;color:var(--muted);line-height:1.4;display:block}
+@keyframes rise{to{opacity:1;transform:none}}
 .btns{display:flex;gap:14px;flex-wrap:wrap}
 .btn{display:inline-block;padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .2s,box-shadow .2s,background .2s}
 .btn.primary{background:var(--fuchsia);color:#fff}
@@ -136,12 +154,13 @@ nav ul a:hover{color:var(--fuchsia)}
 footer{padding:26px 0;color:var(--muted);font-size:.85rem}
 
 @media(max-width:860px){
-  .about,.proj{grid-template-columns:1fr;gap:36px}
+  .about,.proj,.hero .wrap{grid-template-columns:1fr;gap:36px}
+  .stats{gap:12px}.stat{padding:18px 16px}
   nav ul{gap:14px;font-size:.85rem}.logo{display:none}nav .wrap{justify-content:center}
   section{padding:44px 0}.proj{padding:26px}
 }
 @media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}.blob{animation:none}
+  html{scroll-behavior:auto}.blob,.avail i{animation:none}.stat{animation:none;opacity:1;transform:none}
   .tool{animation:none!important}
   .steps::after{transition:none}
 }
@@ -166,13 +185,25 @@ footer{padding:26px 0;color:var(--muted);font-size:.85rem}
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
   <div class="wrap">
     <div>
+      <span class="avail"><i></i>Open to roles in Bangalore, Hyderabad, Pune, Kolkata, Mumbai and Delhi</span>
       <h1>Suparna Das</h1>
+      <p class="fixed">MIS Reporting &amp; Data Analysis &middot; Advanced Excel &middot; Power BI &middot; SQL</p>
       <p class="role"><b id="typed"></b></p>
       <div class="btns">
         <a class="btn primary" href="#projects">View projects</a>
         <!-- RESUME: upload your PDF to the repo with the exact name resume.pdf -->
-        <a class="btn ghost" href="resume.pdf" download="Suparna_Das_Resume.pdf">Download resume</a>
+        <a class="btn ghost" href="resume.pdf" download="Suparna_Das_Resume.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>Download resume</a>
+        <div class="soc">
+          <a href="https://www.linkedin.com/in/suparna-das-800435352/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://github.com/suparnad-27" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+        </div>
       </div>
+    </div>
+    <div class="stats" aria-label="Headline results">
+      <div class="stat"><b data-to="83" data-suf="%">83%</b><span>faster daily reporting (3 hours to 30 minutes)</span></div>
+      <div class="stat"><b data-to="1" data-suf="M+">1M+</b><span>beneficiary records validated</span></div>
+      <div class="stat"><b data-to="45" data-suf="">45</b><span>regions reported, across 11 zones</span></div>
+      <div class="stat"><b data-to="51" data-pre="~" data-suf="%">~51%</b><span>of NRI ad spend saved</span></div>
     </div>
   </div>
 </header>
@@ -340,6 +371,23 @@ var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   ['mouseleave','focusout'].forEach(function(ev){t.addEventListener(ev,function(){hold=false;});});
   if(!reduce)timer=setInterval(function(){if(!hold)go(1);},4200);
   mark();
+})();
+
+// Count-up numbers
+(function(){
+  var els=document.querySelectorAll('.stat b');
+  if(reduce)return;
+  els.forEach(function(el){
+    var to=+el.dataset.to,pre=el.dataset.pre||'',suf=el.dataset.suf||'',t0=null;
+    el.textContent=pre+'0'+suf;
+    function f(ts){
+      if(!t0)t0=ts+300;
+      var k=Math.min(Math.max((ts-t0)/1400,0),1),e=1-Math.pow(1-k,3);
+      el.textContent=pre+Math.round(to*e)+suf;
+      if(k<1)requestAnimationFrame(f);
+    }
+    requestAnimationFrame(f);
+  });
 })();
 
 // Milestone line fills when scrolled into view
