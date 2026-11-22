@@ -1,8 +1,355 @@
 <!DOCTYPE html>
-<html>
-<head><title>Suparna Das | Data Analytics Portfolio</title></head>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suparna Das | Data Analytics Portfolio</title>
+<meta name="description" content="Marketer turned data analyst. Excel, SQL and Python. Based in Kolkata, India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F4FA; --card:#FFFFFF; --ink:#2A1B3D; --muted:#6F6280; --line:#E6DCEF;
+  --fuchsia:#C0399A; --coral:#F4846F; --peach:#FFE5DD; --lilac:#EADDF7; --pink:#F6C3E1;
+  --serif:'Fraunces',Georgia,serif; --sans:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--fuchsia);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative}
+section{padding:56px 0}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,4vw,2.7rem);margin-bottom:12px}
+.lead{color:var(--muted);max-width:58ch;margin-bottom:26px}
+
+nav{position:sticky;top:0;z-index:20;background:rgba(248,244,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-family:var(--serif);font-weight:600;font-size:1.25rem;text-decoration:none}
+nav ul{display:flex;gap:26px;list-style:none;font-size:.95rem}
+nav ul a{text-decoration:none;color:var(--muted);transition:color .2s}
+nav ul a:hover{color:var(--fuchsia)}
+
+/* hero */
+.hero{padding:56px 0 48px;position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.75;animation:drift 14s ease-in-out infinite alternate;z-index:0}
+.b1{width:380px;height:380px;background:var(--pink);top:-90px;right:8%}
+.b2{width:320px;height:320px;background:var(--peach);bottom:-120px;left:4%;animation-delay:-5s}
+.b3{width:260px;height:260px;background:var(--lilac);top:30%;left:42%;animation-delay:-9s}
+@keyframes drift{to{transform:translate(40px,-30px) scale(1.12)}}
+.hero .wrap{max-width:1080px}
+.hero h1{font-size:clamp(3rem,7.5vw,5.4rem);margin-bottom:18px}
+.role{font-size:clamp(1.15rem,2.4vw,1.5rem);color:var(--muted);min-height:2.4em;margin-bottom:28px}
+.role b{color:var(--fuchsia);font-weight:500;border-right:2px solid var(--coral);padding-right:3px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .2s,box-shadow .2s,background .2s}
+.btn.primary{background:var(--fuchsia);color:#fff}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(192,57,154,.28)}
+.btn.ghost{border:1.5px solid var(--ink);color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+
+/* about */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:56px}
+.about p+p{margin-top:16px}
+.facts{list-style:none;display:grid;gap:14px;align-content:start}
+.facts li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;font-weight:500}
+.facts li small{display:block;color:var(--muted);font-weight:400;font-size:.85rem}
+
+.ctrl{display:flex;gap:10px;margin-bottom:18px}
+.ctrl button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font-size:1.2rem;cursor:pointer;transition:all .2s}
+.ctrl button:hover{background:var(--fuchsia);border-color:var(--fuchsia);color:#fff}
+.track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:6px 2px 14px}
+.track::-webkit-scrollbar{display:none}
+.scard{flex:0 0 min(290px,82%);scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 26px;text-align:center;box-shadow:0 14px 34px rgba(42,27,61,.08);transition:transform .25s}
+.scard:hover{transform:translateY(-5px)}
+.scard h3{font-size:1.5rem;color:var(--fuchsia);margin:14px 0 6px}
+.scard p{font-size:.93rem;color:var(--muted)}
+.scard svg{width:auto;height:72px}
+.tool{height:84px;display:flex;align-items:center;justify-content:center;gap:14px;animation:float 3.4s ease-in-out infinite alternate}
+.scard:hover .tool{animation-play-state:paused;transform:scale(1.08) rotate(-3deg)}
+.tool{transition:transform .3s}
+.scard.plus{border:2px dashed var(--coral);background:transparent;box-shadow:none}
+.plusbtn{text-decoration:none}
+.plusbtn span{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--fuchsia),var(--coral));color:#fff;font-size:2.8rem;line-height:70px;font-weight:400;display:block;transition:transform .4s}
+.scard.plus:hover .plusbtn span{transform:rotate(90deg)}
+.scard.plus h3{color:var(--ink)}
+.scard.plus p a{color:var(--fuchsia);font-weight:700;text-decoration:none;border-bottom:2px solid var(--pink)}
+@keyframes float{from{translate:0 -4px}to{translate:0 5px}}
+.dots{display:flex;gap:8px;margin-top:6px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--line);transition:background .3s,transform .3s}
+.dots i.cur{background:var(--coral);transform:scale(1.3)}
+.ico *{transform-box:fill-box}
+.bar{transform-origin:bottom;animation:up 2.2s cubic-bezier(.3,.8,.3,1) infinite alternate}
+.layer{animation:drop 2.2s ease-in-out infinite alternate}
+.line{transform-origin:left;animation:type 2.2s steps(10) infinite alternate}
+.ring{stroke-dasharray:163;animation:ring 2.6s ease-in-out infinite alternate}
+@keyframes up{from{transform:scaleY(.25)}to{transform:scaleY(1)}}
+@keyframes drop{from{opacity:.25;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes type{from{transform:scaleX(.1)}to{transform:scaleX(1)}}
+@keyframes ring{from{stroke-dashoffset:140}to{stroke-dashoffset:40}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.skill{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.skill h3{font-size:1.35rem;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:.85rem;padding:5px 13px;border-radius:999px;background:var(--lilac);transition:background .2s,transform .2s}
+.chips span:hover{background:var(--peach);transform:translateY(-2px)}
+.chips span.learn{background:transparent;border:1.5px dashed var(--coral);color:var(--muted)}
+
+/* project */
+.proj{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:38px;box-shadow:0 18px 40px rgba(42,27,61,.07);display:grid;grid-template-columns:1.1fr 1fr;gap:40px}
+.tag{display:inline-block;font-size:.8rem;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--peach);color:#B8503D;margin-bottom:14px}
+.proj h3{font-size:1.9rem;margin-bottom:12px}
+.proj p{color:var(--muted);margin-bottom:18px}
+.proj .links a{font-weight:700;color:var(--fuchsia);text-decoration:none;border-bottom:2px solid var(--pink)}
+.steps{list-style:none;position:relative;display:grid;gap:18px;padding-left:34px}
+.steps::before,.steps::after{content:"";position:absolute;left:11px;top:8px;width:2px;border-radius:2px}
+.steps::before{bottom:8px;background:var(--line)}
+.steps::after{height:0;background:linear-gradient(var(--fuchsia),var(--coral));transition:height 1.6s cubic-bezier(.3,.7,.2,1)}
+.steps.in::after{height:46%}
+.steps li{position:relative;font-weight:500}
+.steps li::before{content:"";position:absolute;left:-34px;top:3px;width:18px;height:18px;border-radius:50%;background:var(--card);border:2px solid var(--line)}
+.steps li.d::before{background:var(--fuchsia);border-color:var(--fuchsia)}
+.steps li.n::before{border-color:var(--coral)}
+.steps li small{display:block;color:var(--muted);font-weight:400;font-size:.85rem}
+
+/* experience */
+.exp{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.exp article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;transition:transform .25s,box-shadow .25s}
+.exp article:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(42,27,61,.1)}
+.exp h3{font-size:1.25rem;margin-bottom:8px}
+.exp p{color:var(--muted);font-size:.96rem}
+.exp .src{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+
+.exp-h{font-size:1.5rem;margin:34px 0 16px}
+.tl{border-left:2px solid var(--line);margin-left:6px;display:grid;gap:22px}
+.tl article{position:relative;padding-left:26px}
+.tl article::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:linear-gradient(var(--fuchsia),var(--coral))}
+.tl h4{font-family:var(--sans);font-size:1.02rem;font-weight:700}
+.tl .when{color:var(--muted);font-size:.85rem;margin-bottom:4px}
+.tl ul{margin-left:18px;color:var(--muted);font-size:.95rem;display:grid;gap:2px}
+.contact{border-top:1px solid var(--line);background:linear-gradient(180deg,var(--bg),var(--lilac))}
+.contact h2{font-size:clamp(2.2rem,5vw,3.5rem)}
+footer{padding:26px 0;color:var(--muted);font-size:.85rem}
+
+@media(max-width:860px){
+  .about,.proj{grid-template-columns:1fr;gap:36px}
+  nav ul{gap:14px;font-size:.85rem}.logo{display:none}nav .wrap{justify-content:center}
+  section{padding:44px 0}.proj{padding:26px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.blob{animation:none}
+  .tool{animation:none!important}
+  .steps::after{transition:none}
+}
+</style>
+</head>
 <body>
-  <h1>Suparna Das</h1>
-  <p>Marketing professional turned data analyst. Portfolio coming soon.</p>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Suparna Das</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#play">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="wrap">
+    <div>
+      <h1>Suparna Das</h1>
+      <p class="role"><b id="typed"></b></p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">View projects</a>
+        <!-- RESUME: upload your PDF to the repo with the exact name resume.pdf -->
+        <a class="btn ghost" href="resume.pdf" download="Suparna_Das_Resume.pdf">Download resume</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>About</h2>
+      <p>A marketing background taught one lesson early: every good decision starts with clean, trusted data. Years of working with campaign, CRM and reporting data turned that lesson into a career direction.</p>
+      <p>Today the focus is analytics: asking a sharp business question, preparing the data, finding what drives the numbers and turning it into a clear recommendation. Mathematics and an MBA in Data Science provide the foundation, and each project here builds on it.</p>
+      <p>Open to data analyst and MIS roles across India. Preferred locations: Bangalore, Hyderabad, Pune, Kolkata, Mumbai and Delhi.</p>
+    </div>
+    <ul class="facts">
+      <li>Kolkata, India<small>Open to relocation</small></li>
+      <li>MBA, Data Science<small>Online, in progress</small></li>
+      <li>B.Sc. Mathematics<small>University of Calcutta, 2021</small></li>
+      <li>English, Hindi, Bengali<small>Professional, professional, native</small></li>
+    </ul>
+  </div>
+</section>
+
+<section id="play" style="background:rgba(234,221,247,.35)">
+  <div class="wrap">
+    <h2>Core skills</h2>
+    <p class="lead">Swipe, or use the arrows.</p>
+    <div class="ctrl">
+      <button id="prev" type="button" aria-label="Previous skill">&larr;</button>
+      <button id="next" type="button" aria-label="Next skill">&rarr;</button>
+    </div>
+    <div class="track" id="track" tabindex="0" aria-label="Core skills carousel">
+      <article class="scard"><div class="tool" style="animation-delay:0s"><svg viewBox="0 0 24 24" role="img" aria-label="Excel logo"><path fill="#217346" d="M23 1.5q.41 0 .7.3.3.29.3.7v19q0 .41-.3.7-.29.3-.7.3H7q-.41 0-.7-.3-.3-.29-.3-.7V18H1q-.41 0-.7-.3-.3-.29-.3-.7V7q0-.41.3-.7Q.58 6 1 6h5V2.5q0-.41.3-.7.29-.3.7-.3zM6 13.28l1.42 2.66h2.14l-2.38-3.87 2.34-3.8H7.46l-1.3 2.4-.05.08-.04.09-.64-1.28-.66-1.29H2.59l2.27 3.82-2.48 3.85h2.16zM14.25 21v-3H7.5v3zm0-4.5v-3.75H12v3.75zm0-5.25V7.5H12v3.75zm0-5.25V3H7.5v3zm8.25 15v-3h-6.75v3zm0-4.5v-3.75h-6.75v3.75zm0-5.25V7.5h-6.75v3.75zm0-5.25V3h-6.75v3Z"/></svg></div><h3>Advanced Excel</h3><p>Formulas, pivots, Power Query and charts that turn raw rows into patterns.</p></article>
+      <article class="scard"><div class="tool" style="animation-delay:0.5s"><svg viewBox="0 0 24 24" role="img" aria-label="PostgreSQL logo"><path fill="#4169E1" d="M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z"/></svg><svg viewBox="0 0 24 24" role="img" aria-label="MySQL logo"><path fill="#4479A1" d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z"/></svg></div><h3>SQL</h3><p>Querying and cleaning data in PostgreSQL and MySQL.</p></article>
+      <article class="scard"><div class="tool" style="animation-delay:1s"><svg viewBox="0 0 24 24" role="img" aria-label="Power BI logo"><path fill="#F2C811" d="M21 1v22a1 1 0 0 1-1 1h-3.5V7c0-.827-.673-1.5-1.5-1.5h-2V1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1zm-6 5H9a1 1 0 0 0-1 1v4.5h2c.827 0 1.5.673 1.5 1.5v11H16V7a1 1 0 0 0-1-1zm-5 6H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h7V13a1 1 0 0 0-1-1z"/></svg></div><h3>Power BI</h3><p>Dashboards and visual reports that tell the story behind the numbers.</p></article>
+      <article class="scard"><div class="tool" style="animation-delay:1.5s"><svg viewBox="0 0 128 128" role="img" aria-label="Python logo"><linearGradient id="python-original-a" gradientUnits="userSpaceOnUse" x1="70.252" y1="1237.476" x2="170.659" y2="1151.089" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient><linearGradient id="python-original-b" gradientUnits="userSpaceOnUse" x1="209.474" y1="1098.811" x2="173.62" y2="1149.537" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stop-color="#FFD43B"/><stop offset="1" stop-color="#FFE873"/></linearGradient><path fill="url(#python-original-a)" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z" transform="translate(0 10.26)"/><path fill="url(#python-original-b)" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z" transform="translate(0 10.26)"/><radialGradient id="python-original-c" cx="1825.678" cy="444.45" r="26.743" gradientTransform="matrix(0 -.24 -1.055 0 532.979 557.576)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#B8B8B8" stop-opacity=".498"/><stop offset="1" stop-color="#7F7F7F" stop-opacity="0"/></radialGradient><path opacity=".444" fill="url(#python-original-c)" d="M97.309 119.597c0 3.543-14.816 6.416-33.091 6.416-18.276 0-33.092-2.873-33.092-6.416 0-3.544 14.815-6.417 33.092-6.417 18.275 0 33.091 2.872 33.091 6.417z"/></svg></div><h3>Python</h3><p>Writing code to generate, analyse and model data.</p></article>
+      <article class="scard plus"><a class="tool plusbtn" href="#skills" aria-label="See the tools list"><span>+</span></a><h3>More to come</h3><p>New tools will be added to the <a href="#skills">Tools section</a> as they are learned.</p></article>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Tools and skills</h2>
+    <p class="lead">Dashed outlines mark tools still in progress.</p>
+    <div class="skills">
+      <div class="skill"><h3>Tools</h3><div class="chips"><span>Excel</span><span>SQL</span><span>PostgreSQL</span><span>MySQL</span><span>Power BI</span><span>Zoho CRM</span><span class="learn">Python</span><span class="learn">Tableau</span></div></div>
+      <div class="skill"><h3>Skills</h3><div class="chips"><span>Data cleaning</span><span>Data analysis</span><span>Data visualisation</span><span>MIS reporting</span><span>Data migration</span><span>UAT</span><span>Requirement gathering</span><span>Data storytelling</span><span>Team training</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" style="background:rgba(255,229,221,.4)">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="lead">More case studies will appear here as they are completed.</p>
+    <article class="proj">
+      <div>
+        <span class="tag">In progress</span>
+        <h3>Profitability Analysis in E-commerce</h3>
+        <p>How does discounting affect profit margins across products and markets? An MBA project built on the Superstore dataset from Kaggle, moving from raw data to a stakeholder-ready recommendation.</p>
+        <div class="chips" style="margin-bottom:22px"><span>Excel</span><span class="learn">Python</span><span class="learn">Regression</span><span class="learn">Dashboard</span></div>
+        <!-- PROJECT LINK: create this repo, or change the URL -->
+        <div class="links"><a href="https://github.com/suparnad-27/ecommerce-profitability-analysis">View on GitHub</a></div>
+      </div>
+      <ol class="steps" id="steps">
+        <li class="d">Data collection<small>Superstore dataset, Kaggle</small></li>
+        <li class="d">Data cleaning<small>Ship days, total cost, profit margin, order month added</small></li>
+        <li class="d">Descriptive analytics<small>Profit patterns by product and market</small></li>
+        <li class="n">Correlation and regression<small>Next up</small></li>
+        <li>Predictive modelling</li>
+        <li>Visualisation and presentation</li>
+      </ol>
+    </article>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Data experience</h2>
+    <p class="lead exp-src">Built at Infinity Group, Dec 2023 to Nov 2026.</p>
+    <div class="exp">
+      <article><h3>MIS reporting</h3><p>Prepared recurring reports that turned project and campaign activity into figures a team could act on.</p></article>
+      <article><h3>CRM data management</h3><p>Maintained Zoho CRM records, keeping data accurate, consistent and ready for analysis.</p></article>
+      <article><h3>Data migration</h3><p>Supported migrations from requirement gathering through user acceptance testing (UAT).</p></article>
+      <article><h3>Training in data practice</h3><p>Trained a team of four in data management, analysis and reporting, and reviewed their work with feedback.</p></article>
+    </div>
+    <h3 class="exp-h">Experience at Infinity Group</h3>
+    <div class="tl">
+      <article>
+        <h4>Senior Executive, Marketing</h4>
+        <div class="when">Apr 2026 to Nov 2026</div>
+        <ul>
+          <li>Cut daily MIS report preparation by 83% (3 hours to 30 minutes) by automating it with Power Query, Excel Macros and INDEX-MATCH.</li>
+          <li>Analysed Meta Ads metrics in Excel and Power BI; recommended stopping an underperforming ad, saving about 51% of total NRI ad spend.</li>
+          <li>Reconciled beneficiary data across 45 regions and 11 zones; KPI analysis flagged 5 lagging regions, and targeted outreach improved registrations in all five.</li>
+          <li>Designed Power BI dashboards for VP-level audiences and trained a team of 4 on data validation and reporting.</li>
+        </ul>
+      </article>
+      <article>
+        <h4>Executive, Marketing</h4>
+        <div class="when">Dec 2023 to Mar 2026</div>
+        <ul>
+          <li>Produced daily, weekly and monthly MIS reports and Power BI dashboards (one per CSR project) using Pivot Tables, XLOOKUP and SUMIFS.</li>
+          <li>Validated 1M+ beneficiary records during a portal migration, enabling an on-schedule go-live.</li>
+          <li>Cleaned high-volume data in Excel before daily bulk uploads, so records passed field-level validations.</li>
+          <li>Ran UAT of the beneficiary portal and documented defects for developer fixes.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let&rsquo;s talk data.</h2>
+    <p class="lead">Hiring for an analyst or MIS role, or have a dataset worth exploring? Get in touch.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://www.linkedin.com/in/suparna-das-800435352/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/suparnad-27" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="mailto:umail2suparna@gmail.com">Email</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">&copy; <span id="yr">2026</span> Suparna Das &middot; Kolkata, India</div></footer>
+
+<script>
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Write-and-erase line
+(function(){
+  var lines=['marketer turned data analyst.','turning campaigns into insights.','finding the story in the numbers.'];
+  var el=document.getElementById('typed'),r=0,c=0,del=false;
+  if(reduce){el.textContent=lines[0];return;}
+  (function tick(){
+    var w=lines[r];
+    el.textContent=w.slice(0,c);
+    if(!del&&c===w.length){del=true;return setTimeout(tick,1700);}
+    if(del&&c===0){del=false;r=(r+1)%lines.length;}
+    c+=del?-1:1;
+    setTimeout(tick,del?26:58);
+  })();
+})();
+
+// Skills carousel
+(function(){
+  var t=document.getElementById('track'),dots=document.getElementById('dots'),
+      cards=t.querySelectorAll('.scard'),hold=false,timer;
+  Array.prototype.forEach.call(cards,function(){dots.appendChild(document.createElement('i'));});
+  function step(){return cards[0].offsetWidth+22;}
+  function mark(){
+    var n=Math.round(t.scrollLeft/step());
+    Array.prototype.forEach.call(dots.children,function(d,x){d.className=x===n?'cur':'';});
+  }
+  function go(dir){
+    if(dir>0&&t.scrollLeft+t.clientWidth>=t.scrollWidth-4)t.scrollTo({left:0,behavior:'smooth'});
+    else if(dir<0&&t.scrollLeft<4)t.scrollTo({left:t.scrollWidth,behavior:'smooth'});
+    else t.scrollBy({left:dir*step(),behavior:'smooth'});
+  }
+  document.getElementById('next').onclick=function(){go(1);};
+  document.getElementById('prev').onclick=function(){go(-1);};
+  t.addEventListener('scroll',mark);
+  t.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1);});
+  ['mouseenter','focusin','touchstart'].forEach(function(ev){t.addEventListener(ev,function(){hold=true;});});
+  ['mouseleave','focusout'].forEach(function(ev){t.addEventListener(ev,function(){hold=false;});});
+  if(!reduce)timer=setInterval(function(){if(!hold)go(1);},4200);
+  mark();
+})();
+
+// Milestone line fills when scrolled into view
+(function(){
+  var s=document.getElementById('steps');
+  if(!('IntersectionObserver' in window)){s.classList.add('in');return;}
+  new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){s.classList.add('in');o.disconnect();}});},{threshold:.4}).observe(s);
+})();
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
