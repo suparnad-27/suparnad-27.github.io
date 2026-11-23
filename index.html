@@ -69,7 +69,7 @@ h1 .ln:nth-child(2)>span{animation-delay:.18s;color:var(--a);font-weight:700}
 .pill.c:hover{background:var(--a);color:var(--bg)}
 
 /* skills */
-.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4px}
+.cols{display:grid;grid-template-columns:repeat(3,auto) 1fr;gap:0;margin-top:4px}
 .col{padding:0 22px}.col:first-child{padding-left:0}
 .col+.col{border-left:1px solid var(--line)}
 .col h3{font-size:1.5rem;font-weight:700;line-height:1.2;margin-bottom:18px}
@@ -89,6 +89,7 @@ h1 .ln:nth-child(2)>span{animation-delay:.18s;color:var(--a);font-weight:700}
 .js .col.in .it{animation:pop .55s cubic-bezier(.3,1.5,.5,1) backwards;animation-delay:calc(var(--i)*.12s + .15s)}
 @keyframes pop{from{opacity:0;transform:scale(.6) translateX(-12px)}}
 .col ul{list-style:none;display:grid;gap:7px;color:var(--fg);font-size:1rem}
+.col ul li,.col .it,.col h3{white-space:nowrap}
 .col ul li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--a);margin-right:10px}
 
 /* background */
@@ -143,6 +144,9 @@ h1 .ln:nth-child(2)>span{animation-delay:.18s;color:var(--a);font-weight:700}
 .ci a:hover svg{fill:var(--bg)}
 footer{padding:20px 0;text-align:center;color:var(--mut);font-size:.85rem;border-top:1px solid var(--line)}
 
+@media(max-width:1300px){
+  .cols{grid-template-columns:1fr 1fr;row-gap:32px}.col{padding:0 16px}.col:nth-child(odd){padding-left:0;border-left:0}.col ul li,.col .it,.col h3{white-space:normal}
+}
 @media(max-width:900px){
   nav{gap:14px;padding:12px 16px;justify-content:center}nav a{font-size:.74rem}
   .about,.contact,.bg2,.pcard{grid-template-columns:1fr;gap:30px}
